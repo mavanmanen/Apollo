@@ -2,5 +2,5 @@
 
 internal class PeriodicHandlerParameters
 {
-    public string Period { get; set; }
+    public string Period { get; set; } = null!;
 }

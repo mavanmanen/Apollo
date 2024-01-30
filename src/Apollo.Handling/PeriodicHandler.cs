@@ -8,7 +8,7 @@ public abstract class PeriodicHandler
 {
     internal event EventHandler<ResultMessage>? Handled;
 
-    private string _sourceId;
+    private string _sourceId = null!;
     private IServiceProvider _services = null!;
     private CronExpression _cron = null!;
     private Timer _timer = null!;

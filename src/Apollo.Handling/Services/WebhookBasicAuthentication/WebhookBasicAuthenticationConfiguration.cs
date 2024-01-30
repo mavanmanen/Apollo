@@ -2,8 +2,8 @@
 
 public sealed class WebhookBasicAuthenticationConfiguration
 {
-    public string Realm { get; set; }
-    public string Salt { get; set; }
-    public string Username { get; set; }
-    public string Password { get; set; }
+    public string Realm { get; set; } = null!;
+    public string Salt { get; set; } = null!;
+    public string Username { get; set; } = null!;
+    public string Password { get; set; } = null!;
 }
