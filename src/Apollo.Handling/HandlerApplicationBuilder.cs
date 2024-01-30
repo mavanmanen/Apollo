@@ -1,7 +1,6 @@
 ﻿using System.Reflection;
 using System.Security.Claims;
 using Apollo.Core.Extensions;
-using Apollo.Database.Extensions;
 using Apollo.Handling.Services;
 using Apollo.Handling.Services.Smee;
 using Apollo.Handling.Services.WebhookBasicAuthentication;
