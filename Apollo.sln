@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Apollo.Core", "Apollo.Core\Apollo.Core.csproj", "{9A70C392-CEA2-4BCC-AB4C-37EF8F081222}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Apollo.Handling", "Apollo.Handling\Apollo.Handling.csproj", "{7678D2BF-2BA2-4B3D-9105-786FCDE65D2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Apollo.Orchestration", "Apollo.Orchestration\Apollo.Orchestration.csproj", "{D8220B24-1B4A-4C49-9D43-44849B8893C1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9A70C392-CEA2-4BCC-AB4C-37EF8F081222}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A70C392-CEA2-4BCC-AB4C-37EF8F081222}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A70C392-CEA2-4BCC-AB4C-37EF8F081222}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A70C392-CEA2-4BCC-AB4C-37EF8F081222}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7678D2BF-2BA2-4B3D-9105-786FCDE65D2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7678D2BF-2BA2-4B3D-9105-786FCDE65D2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7678D2BF-2BA2-4B3D-9105-786FCDE65D2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7678D2BF-2BA2-4B3D-9105-786FCDE65D2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8220B24-1B4A-4C49-9D43-44849B8893C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8220B24-1B4A-4C49-9D43-44849B8893C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8220B24-1B4A-4C49-9D43-44849B8893C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8220B24-1B4A-4C49-9D43-44849B8893C1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+	EndGlobalSection
+EndGlobal
