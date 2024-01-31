@@ -11,6 +11,7 @@
         <RepositoryUrl>https://github.com/mavanmanen/Apollo</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+        <PackageId>Mavanmanen.Apollo.Core</PackageId>
     </PropertyGroup>
 
     <ItemGroup>
