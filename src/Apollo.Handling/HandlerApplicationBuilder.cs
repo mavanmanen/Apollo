@@ -97,7 +97,12 @@ public sealed class HandlerApplicationBuilder
         Services.RegisterServiceBus();
         Services.AddSingleton<IHandlerService, HandlerService>();
         Services.AddSingleton<IPeriodicHandlerService, PeriodicHandlerService>();
-        foreach (var handler in Assembly.GetExecutingAssembly().GetExportedTypes().Where(t => t.IsAssignableTo(typeof(IAsyncHandler))))
+        var handlerTypes = Assembly.GetExecutingAssembly()
+            .GetExportedTypes().
+            Where(t => t.IsClass)
+            .Where(t => t.IsAssignableTo(typeof(IAsyncHandler)));
+        
+        foreach (var handler in handlerTypes)
         {
             Services.AddScoped(handler);
             Services.AddScoped(typeof(IAsyncHandler), s => s.GetRequiredService(handler));
