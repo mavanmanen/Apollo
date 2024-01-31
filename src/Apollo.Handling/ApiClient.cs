@@ -1,7 +1,5 @@
-﻿using Newtonsoft.Json;
-using RestSharp;
+﻿using RestSharp;
 using RestSharp.Authenticators;
-using RestSharp.Serializers.NewtonsoftJson;
 
 namespace Apollo.Handling;
 
@@ -11,7 +9,6 @@ public abstract class ApiClient
 
     protected ApiClient(string baseUrl,
         IAuthenticator? authenticator = null,
-        JsonSerializerSettings? serializerSettings = null,
         Dictionary<string, string>? defaultHeaders = null)
     {
         _client = new RestClient(
@@ -19,17 +16,6 @@ public abstract class ApiClient
             configureRestClient: cfg =>
             {
                 cfg.Authenticator = authenticator;
-            },
-            configureSerialization: cfg =>
-            {
-                if (serializerSettings is null)
-                {
-                    cfg.UseNewtonsoftJson();
-                }
-                else
-                {
-                    cfg.UseNewtonsoftJson(serializerSettings);
-                }
             });
         
         if (defaultHeaders is not null)

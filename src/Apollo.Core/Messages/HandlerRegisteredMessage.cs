@@ -1,12 +1,11 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+﻿using System.Text.Json.Serialization;
 
 namespace Apollo.Core.Messages;
 
-[method: System.Text.Json.Serialization.JsonConstructor]
+[method: JsonConstructor]
 public class HandlerRegisteredMessage(HandlerTypes type, string system, string name, string description)
 {
-    [JsonConverter(typeof(StringEnumConverter))]
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public HandlerTypes Type { get; } = type;
     public string System { get; } = system;
     public string Name { get; } = name;

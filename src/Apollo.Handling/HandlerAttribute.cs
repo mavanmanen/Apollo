@@ -2,6 +2,7 @@
 
 namespace Apollo.Handling;
 
+[AttributeUsage(AttributeTargets.Class)]
 public class HandlerAttribute(HandlerTypes type, string system, string name, string description = "") : Attribute
 {
     public HandlerTypes Type { get; } = type;

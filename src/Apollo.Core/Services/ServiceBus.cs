@@ -1,8 +1,8 @@
 ﻿using System.Text;
+using System.Text.Json;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 
@@ -89,7 +89,7 @@ public class ServiceBus : IServiceBus
 
     private static ReadOnlyMemory<byte> GetMessageBytes(object message)
     {
-        var json = JsonConvert.SerializeObject(message);
+        var json = JsonSerializer.Serialize(message);
         return  new ReadOnlyMemory<byte>(Encoding.UTF8.GetBytes(json));
     }
 }

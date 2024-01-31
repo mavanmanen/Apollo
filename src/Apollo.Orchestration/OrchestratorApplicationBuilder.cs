@@ -24,6 +24,7 @@ public sealed class OrchestratorApplicationBuilder
     {
         Configuration.AddEnvironmentVariables();
         Services.RegisterServiceBus();
+        Services.AddSingleton<IJsonTransformService, IJsonTransformService>();
         Services.AddSingleton<IIntegrationService, IntegrationService>();
 
         return new OrchestratorApplication(_builder.Build());

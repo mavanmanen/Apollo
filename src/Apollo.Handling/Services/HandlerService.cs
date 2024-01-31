@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 using RabbitMQ.Client;
 
 namespace Apollo.Handling.Services;
@@ -140,7 +139,7 @@ internal class HandlerService(
 
                     SetupQueueConsumer(outputExchangeAttribute.ExchangeName, message.QueueName, message.RoutingKey);
 
-                    var parameters = message.Parameters.ToObject<PeriodicHandlerParameters>();
+                    var parameters = message.Parameters?.Deserialize<PeriodicHandlerParameters>();
                     if (parameters is null)
                     {
                         return Task.CompletedTask;
@@ -206,7 +205,7 @@ internal class HandlerService(
             raw = raw[1..^1];
         }
 
-        return JsonConvert.DeserializeObject(raw, messageType);
+        return JsonSerializer.Deserialize(raw, messageType);
     }
 
     private static void HandleResult(ResultMessage? result, IServiceBusSender serviceBus, ILogger logger)
