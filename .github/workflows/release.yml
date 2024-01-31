@@ -27,4 +27,4 @@ jobs:
       working-directory: ./src
     - name: Push
       working-directory: ./src
-      run: dotnet nuget push *.nupkg --api-key "${{ secrets.NUGET_API_KEY }}" --source https://api.nuget.org/v3/index.json --skip-duplicate
+      run: dotnet nuget push Apollo.*.nupkg -k "${{ secrets.NUGET_API_KEY }}" -s https://api.nuget.org/v3/index.json --skip-duplicate
