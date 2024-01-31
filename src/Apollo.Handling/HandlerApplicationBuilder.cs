@@ -16,14 +16,16 @@ namespace Apollo.Handling;
 
 public sealed class HandlerApplicationBuilder
 {
+    private readonly Assembly _assembly;
     public IServiceCollection Services => _builder.Services;
     public ConfigurationManager Configuration => _builder.Configuration;
     public IWebHostEnvironment Environment => _builder.Environment;
     
     private readonly WebApplicationBuilder _builder;
 
-    internal HandlerApplicationBuilder()
+    internal HandlerApplicationBuilder(Assembly assembly)
     {
+        _assembly = assembly;
         _builder = WebApplication.CreateBuilder();
     }
 
@@ -97,7 +99,7 @@ public sealed class HandlerApplicationBuilder
         Services.RegisterServiceBus();
         Services.AddSingleton<IHandlerService, HandlerService>();
         Services.AddSingleton<IPeriodicHandlerService, PeriodicHandlerService>();
-        var handlerTypes = Assembly.GetExecutingAssembly()
+        var handlerTypes = _assembly
             .GetExportedTypes().
             Where(t => t.IsClass)
             .Where(t => t.IsAssignableTo(typeof(IAsyncHandler)));
@@ -108,6 +110,6 @@ public sealed class HandlerApplicationBuilder
             Services.AddScoped(typeof(IAsyncHandler), s => s.GetRequiredService(handler));
         }
 
-        return new HandlerApplication(_builder.Build());
+        return new HandlerApplication(_builder.Build(), _assembly);
     }
 }

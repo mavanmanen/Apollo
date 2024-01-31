@@ -13,17 +13,17 @@ public sealed class HandlerApplication
     
     private readonly WebApplication _app;
 
-    internal HandlerApplication(WebApplication app)
+    internal HandlerApplication(WebApplication app, Assembly assembly)
     {
         _app = app;
         
         var handlerService = _app.Services.GetRequiredService<IHandlerService>();
-        handlerService.SetupHandlers(Assembly.GetExecutingAssembly(), _app);
+        handlerService.SetupHandlers(assembly, _app);
 
         _app.MapGet("/", () => Results.Ok()).AllowAnonymous();
     }
     
-    public static HandlerApplicationBuilder CreateBuilder() => new();
+    public static HandlerApplicationBuilder CreateBuilder(Assembly assembly) => new(assembly);
 
     public Task RunAsync() => _app.RunAsync();
 
