@@ -102,11 +102,8 @@ internal class HandlerService(
                 serviceBus.DeclareExchange(outputExchangeAttribute.ExchangeName, ExchangeType.Fanout);
             }
 
-            if (app.Environment.IsDevelopment())
-            {
-                var smeeService = app.Services.GetRequiredService<ISmeeService>();
-                smeeService.CreateInstance(handlerDefinition.TriggerAttribute.RouteName);
-            }
+            var smeeService = app.Services.GetService<ISmeeService>();
+            smeeService?.CreateInstance(handlerDefinition.TriggerAttribute.RouteName);
         }
 
         return handlerDefinitions.Select(h => h.HandlerAttribute);
