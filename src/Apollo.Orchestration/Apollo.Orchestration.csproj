@@ -4,6 +4,13 @@
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <Authors>mavanmanen</Authors>
+        <Copyright>mavanmanen</Copyright>
+        <PackageProjectUrl>https://github.com/mavanmanen/Apollo</PackageProjectUrl>
+        <PackageLicenseUrl>https://github.com/mavanmanen/Apollo/blob/main/LICENSE</PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/mavanmanen/Apollo</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     </PropertyGroup>
 
     <ItemGroup>
